@@ -22,6 +22,7 @@ public class Globals : MonoBehaviour
         Tracy = new PatientClass.Patient("Tracy");
 
         initializeRubyDialogue();
+        //test edit
     }
 
     // Update is called once per frame
