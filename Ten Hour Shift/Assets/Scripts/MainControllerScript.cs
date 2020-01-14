@@ -8,7 +8,6 @@ public class MainControllerScript : MonoBehaviour
     void Start()
     {
         Globals.mabel.printPatientName();
-        //test comment
     }
 
     // Update is called once per frame

@@ -20,7 +20,6 @@ public class Globals : MonoBehaviour
         michael = new PatientClass.Patient("Michael Kodskey");
         dolores = new PatientClass.Patient("Dolores Valerio");
         Tracy = new PatientClass.Patient("Tracy");
-
         initializeRubyDialogue();
     }
 
