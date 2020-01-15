@@ -14,8 +14,8 @@ public class Clickable : MonoBehaviour
     {
         starting_camere_position = m_camera.transform.position;
         originalEulerAngle = m_camera.transform.rotation.eulerAngles;
-        upperRoomEulerAngle = new Vector3(30.0f, -90.0f, 0.0f);
-        buttomRoomEulerAngle = new Vector3(30.0f, 90.0f, 0.0f);
+        upperRoomEulerAngle = new Vector3(30.0f, 180.0f, 0.0f);
+        buttomRoomEulerAngle = new Vector3(30.0f, 0.0f, 0.0f);
         //Debug.Log("cameraPos" + cameraPos);
     }
 
@@ -34,25 +34,25 @@ public class Clickable : MonoBehaviour
         if (gameObject.name == "GreenClickable")
         {
             Debug.Log("Move to green");
-            m_camera.transform.position = new Vector3(-32.0f, 7.5f, 33.0f);
+            m_camera.transform.position = new Vector3(-37.0f, 7.0f, -29.0f);
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
         }
         else if (gameObject.name == "BlueClickable")
         {
             Debug.Log("Move to blue");
-            m_camera.transform.position = new Vector3(-32.0f, 7.5f, 8.5f);
+            m_camera.transform.position = new Vector3(-11.0f, 7.0f, -29.0f);
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
         }
         else if (gameObject.name == "GrassClickable")
         {
             Debug.Log("Move to grass");
-            m_camera.transform.position = new Vector3(32.0f, 7.5f, 10.0f);
+            m_camera.transform.position = new Vector3(-11.0f, 7.0f, 33.0f);
             m_camera.transform.eulerAngles = upperRoomEulerAngle;
         }
         else if (gameObject.name == "PurpleClickable")
         {
             Debug.Log("Move to purple");
-            m_camera.transform.position = new Vector3(32.0f, 7.5f, -15.0f);
+            m_camera.transform.position = new Vector3(12.0f, 7.0f, 33.0f);
             m_camera.transform.eulerAngles = upperRoomEulerAngle;
         }
     }
