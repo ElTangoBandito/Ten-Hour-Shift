@@ -9,7 +9,7 @@ public class PatientClass : MonoBehaviour
         public int happiness;
         public int health;
         public string patientName;
-        public Dictionary<int, string> dialogue = new Dictionary<int, string>();
+        public Dictionary<int, SkitClass.Skit> dialogue = new Dictionary<int, SkitClass.Skit>();
 
         public Patient(string nameIn)
         {

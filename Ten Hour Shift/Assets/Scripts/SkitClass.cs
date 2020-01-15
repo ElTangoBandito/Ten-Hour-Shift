@@ -8,6 +8,7 @@ public class SkitClass : MonoBehaviour
     {
         public List<string> patientDialogues;
         public List<string> playerResponses;
+        public List<int> stressRequirements;
         public List<int> playerChoiceResult;
 
         public Dictionary<int, List<string>> branchingDialogue = new Dictionary<int, List<string>>();
@@ -17,12 +18,13 @@ public class SkitClass : MonoBehaviour
         public bool needPlayerInputNow; //this is true when the dialogue requires player input at this very moment.
         public bool playerInputRequired;
 
-        public Skit(List<string> patientDialoguesIn, List<string> playerResponsesIn, List<int> playerChoiceResultIn, Dictionary<int, List<string>> branchingDialogueIn)
+        public Skit(List<string> patientDialoguesIn, List<string> playerResponsesIn, List<int> stressRequirementsIn, List<int> playerChoiceResultIn, Dictionary<int, List<string>> branchingDialogueIn)
         {
             patientDialogues = patientDialoguesIn;
             playerResponses = playerResponsesIn;
             playerChoiceResult = playerChoiceResultIn;
             branchingDialogue = branchingDialogueIn;
+            stressRequirements = stressRequirementsIn;
             if (playerResponses.Count > 0){
                 playerInputRequired = true;
             } else{
