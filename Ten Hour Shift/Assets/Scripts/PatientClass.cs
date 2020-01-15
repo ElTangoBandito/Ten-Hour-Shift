@@ -35,8 +35,8 @@ public class PatientClass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
- 
+
 }

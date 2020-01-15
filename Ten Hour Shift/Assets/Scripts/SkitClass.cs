@@ -25,9 +25,12 @@ public class SkitClass : MonoBehaviour
             playerChoiceResult = playerChoiceResultIn;
             branchingDialogue = branchingDialogueIn;
             stressRequirements = stressRequirementsIn;
-            if (playerResponses.Count > 0){
+            if (playerResponses.Count > 0)
+            {
                 playerInputRequired = true;
-            } else{
+            }
+            else
+            {
                 playerInputRequired = false;
             }
             skitIsOver = false;
@@ -36,10 +39,12 @@ public class SkitClass : MonoBehaviour
             currentBranchingDialogueIndex = 0;
         }
 
-        public string getNextLine(){
+        public string getNextLine()
+        {
             //returns the next line to chat bubble UI also checks if skit is over or if player responses are needed
             string currentLine = "";
-            if (currentDialogueIndex < patientDialogues.Count){
+            if (currentDialogueIndex < patientDialogues.Count)
+            {
                 currentLine = patientDialogues[currentDialogueIndex];
                 currentDialogueIndex++;
             }
@@ -47,11 +52,16 @@ public class SkitClass : MonoBehaviour
             return currentLine;
         }
 
-        public bool hasNextLine(){
-            if (currentDialogueIndex >= patientDialogues.Count){
-                if(playerInputRequired){
+        public bool hasNextLine()
+        {
+            if (currentDialogueIndex >= patientDialogues.Count)
+            {
+                if (playerInputRequired)
+                {
                     needPlayerInputNow = true;
-                } else{
+                }
+                else
+                {
                     skitIsOver = true;
                 }
                 return false;
@@ -59,27 +69,33 @@ public class SkitClass : MonoBehaviour
             return true;
         }
 
-        public string getBranchingLine(int branchNumber){
+        public string getBranchingLine(int branchNumber)
+        {
             string currentLine = "";
-            if (currentBranchingDialogueIndex < branchingDialogue[branchNumber].Count){
+            if (currentBranchingDialogueIndex < branchingDialogue[branchNumber].Count)
+            {
                 currentLine = branchingDialogue[branchNumber][currentBranchingDialogueIndex];
                 currentBranchingDialogueIndex++;
             }
             return currentLine;
         }
 
-        public bool hasNextBranchingLine(int branchNumber){
-            if (currentBranchingDialogueIndex >= branchingDialogue[branchNumber].Count){
+        public bool hasNextBranchingLine(int branchNumber)
+        {
+            if (currentBranchingDialogueIndex >= branchingDialogue[branchNumber].Count)
+            {
                 skitIsOver = true;
                 return false;
             }
             return true;
         }
 
-        public bool isUsed(){
+        public bool isUsed()
+        {
             return skitIsOver;
         }
-        public void reset(){
+        public void reset()
+        {
             skitIsOver = false;
             needPlayerInputNow = false;
             currentDialogueIndex = 0;
@@ -90,12 +106,12 @@ public class SkitClass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

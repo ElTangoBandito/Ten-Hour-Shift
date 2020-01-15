@@ -31,13 +31,13 @@ public class MainControllerScript : MonoBehaviour
             {
                 print(Globals.mabel.dialogue[1].getBranchingLine(3));
             }
-            
+
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

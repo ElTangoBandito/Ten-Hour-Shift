@@ -19,7 +19,7 @@ public class Globals : MonoBehaviour
     public Dictionary<int, List<string>> branchingDialogue = new Dictionary<int, List<string>>();
     int numberOfSkit = 1;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +34,12 @@ public class Globals : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
-    void clearLists(){
+    void clearLists()
+    {
         patientDialogues.Clear();
         playerResponses.Clear();
         stressRequirements.Clear();
@@ -49,14 +50,16 @@ public class Globals : MonoBehaviour
         branchingDialogue.Clear();
     }
 
-    void addSkitToPatient(PatientClass.Patient patientIn){
+    void addSkitToPatient(PatientClass.Patient patientIn)
+    {
         SkitClass.Skit skit = new SkitClass.Skit(patientDialogues, playerResponses, stressRequirements, responseResults, branchingDialogue);
         mabel.dialogue.Add(numberOfSkit, skit);
         //print(mabel.dialogue[1].hasNextLine());
         numberOfSkit++;
     }
 
-    void resetNumberOfSkit(){
+    void resetNumberOfSkit()
+    {
         numberOfSkit = 0;
     }
     //positive stress value means it needs to be greater than. Negative means it needs to be less than.
