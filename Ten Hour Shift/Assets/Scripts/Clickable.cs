@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Clickable : MonoBehaviour
 {
@@ -64,7 +62,7 @@ public class Clickable : MonoBehaviour
         else if (gameObject.name == "BreakroomClickable")
         {
             Debug.Log("Move to break room");
-            m_camera.transform.position = new Vector3(-55.0f, 8.0f, 11.0f); //break room cam position
+            m_camera.transform.position = new Vector3(-60.0f, 9.0f, 11.0f); //break room cam position
             m_camera.transform.eulerAngles = breakRoomEulerAngle;
             Globals.roomNumber = 5;
         }
@@ -73,7 +71,7 @@ public class Clickable : MonoBehaviour
             Debug.Log("Move to meeting room");
             m_camera.transform.position = new Vector3(12.0f, 8.0f, -29.0f); //break room cam position
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
-            Globals.roomNumber = 5;
+            Globals.roomNumber = 6;
         }
     }
 }
