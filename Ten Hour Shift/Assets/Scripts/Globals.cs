@@ -28,6 +28,7 @@ public class Globals : MonoBehaviour
     // 3 Mabel
     // 4 Dolores
     // 5 Breakroom
+    // 6 Visiting room
 
     // Start is called before the first frame update
     void Start()

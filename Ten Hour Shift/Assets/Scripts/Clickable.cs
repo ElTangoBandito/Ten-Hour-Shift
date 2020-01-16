@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Clickable : MonoBehaviour
 {
@@ -73,7 +71,7 @@ public class Clickable : MonoBehaviour
             Debug.Log("Move to meeting room");
             m_camera.transform.position = new Vector3(12.0f, 8.0f, -29.0f); //break room cam position
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
-            Globals.roomNumber = 5;
+            Globals.roomNumber = 6;
         }
     }
 }
