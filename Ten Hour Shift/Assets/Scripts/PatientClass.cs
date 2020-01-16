@@ -13,7 +13,7 @@ public class PatientClass : MonoBehaviour
 
         public Patient(string nameIn)
         {
-            happiness = 100;
+            happiness = 50;
             health = 100;
             patientName = nameIn;
         }

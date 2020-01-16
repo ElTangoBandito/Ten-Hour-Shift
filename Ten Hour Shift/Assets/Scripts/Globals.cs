@@ -28,6 +28,7 @@ public class Globals : MonoBehaviour
     // 3 Mabel
     // 4 Dolores
     // 5 Breakroom
+    // 6 Visiting room
 
     // Start is called before the first frame update
     void Start()
@@ -62,12 +63,40 @@ public class Globals : MonoBehaviour
         branchingDialogue.Clear();
     }
 
+    void combine3Branches()
+    {
+        List<string> bd1Copy = new List<string>(branchingDialogueOne);
+        List<string> bd2Copy = new List<string>(branchingDialogueTwo);
+        List<string> bd3Copy = new List<string>(branchingDialogueThree);
+        branchingDialogue.Add(0, bd1Copy);
+        branchingDialogue.Add(1, bd2Copy);
+        branchingDialogue.Add(2, bd3Copy);
+    }
+
+    void combine2Branches()
+    {
+        List<string> bd1Copy = new List<string>(branchingDialogueOne);
+        List<string> bd2Copy = new List<string>(branchingDialogueTwo);
+        branchingDialogue.Add(0, bd1Copy);
+        branchingDialogue.Add(1, bd2Copy);
+    }
+
     void addSkitToPatient(PatientClass.Patient patientIn)
     {
-        SkitClass.Skit skit = new SkitClass.Skit(patientDialogues, playerResponses, stressRequirements, responseResults, branchingDialogue);
+        List<string> patientDialoguesCopy = new List<string>(patientDialogues);
+        List<string> playerResponsesCopy = new List<string>(playerResponses);
+        List<int> stressRequirementsCopy = new List<int>(stressRequirements);
+        List<int> responseResultsCopy = new List<int>(responseResults);
+        Dictionary<int, List<string>> branchingDialogueCopy = new Dictionary<int, List<string>>(branchingDialogue);
+
+        //SkitClass.Skit skit = new SkitClass.Skit(patientDialogues, playerResponses, stressRequirements, responseResults, branchingDialogue);
+        SkitClass.Skit skit = new SkitClass.Skit(patientDialoguesCopy, playerResponsesCopy, stressRequirementsCopy, responseResultsCopy, branchingDialogueCopy);
         mabel.dialogue.Add(numberOfSkit, skit);
         //print(mabel.dialogue[1].hasNextLine());
+        //print(numberOfSkit);
+        //print(mabel.dialogue[numberOfSkit].patientDialogues.Count);
         numberOfSkit++;
+        clearLists();
     }
 
     void resetNumberOfSkit()
@@ -96,11 +125,22 @@ public class Globals : MonoBehaviour
         stressRequirements.Add(-35);
         responseResults.Add(10);
         branchingDialogueThree.Add("No, no, that’s my little sweet pea. But I guess she’s got her mama’s looks don’t she?");
-        branchingDialogue.Add(1, branchingDialogueOne);
-        branchingDialogue.Add(2, branchingDialogueTwo);
-        branchingDialogue.Add(3, branchingDialogueThree);
+        combine3Branches();
+        //branchingDialogue.Add(1, branchingDialogueOne);
+        //branchingDialogue.Add(2, branchingDialogueTwo);
+        //branchingDialogue.Add(3, branchingDialogueThree);
         addSkitToPatient(mabel);
-        resetNumberOfSkit();
+
+        //skit 2
+        patientDialogues.Add("You won’t believe what happened yesterday!");
+        patientDialogues.Add("Now, I asked that man politely to turn down his music at night, that damn old fool told me to shut my snoring mouth first!");
+
+        patientDialogues.Add("Just because he’s fought in the war, it don’t mean he can be rude!");
+        addSkitToPatient(mabel);
+
+        //skit 3
+
+        //resetNumberOfSkit();
         //List<string> patientDialoguesIn, List<string> playerResponsesIn, List<int> playerChoiceResultIn, Dictionary<int, List<string>> branchingDialogueIn
         //SkitClass.Skit = new SkitClass.Skit()
         //mabel.dialogue.Add(numberOfSkits, );
