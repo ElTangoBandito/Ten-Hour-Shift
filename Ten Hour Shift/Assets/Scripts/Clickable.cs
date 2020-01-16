@@ -62,7 +62,7 @@ public class Clickable : MonoBehaviour
         else if (gameObject.name == "BreakroomClickable")
         {
             Debug.Log("Move to break room");
-            m_camera.transform.position = new Vector3(-55.0f, 8.0f, 11.0f); //break room cam position
+            m_camera.transform.position = new Vector3(-60.0f, 9.0f, 11.0f); //break room cam position
             m_camera.transform.eulerAngles = breakRoomEulerAngle;
             Globals.roomNumber = 5;
         }
