@@ -7,43 +7,45 @@ public class MainControllerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Globals.mabel.printPatientName();
-        
         //print(Globals.mabel.dialogue[2].patientDialogues.Count);
+        int skitNumber = Globals.dolores.dialogue.Count;
+        print(skitNumber);
         /*
-        while (Globals.mabel.dialogue[2].hasNextLine())
+        while (Globals.mabel.dialogue[skitNumber].hasNextLine())
         {
-           print(Globals.mabel.dialogue[2].getNextLine());
+           print(Globals.mabel.dialogue[skitNumber].getNextLine());
         }
+        print(Globals.mabel.dialogue[skitNumber].hasNextLine());
         */
-        //print(Globals.mabel.dialogue[2].hasNextLine());
-        
-        
-        while (Globals.mabel.dialogue[1].hasNextLine())
+        PatientClass.Patient patient = Globals.dolores;
+        while (patient.dialogue[skitNumber].hasNextLine())
         {
-            print(Globals.mabel.dialogue[1].getNextLine());
+            print(patient.dialogue[skitNumber].getNextLine());
         }
-        if (Globals.mabel.dialogue[1].needPlayerInputNow)
+        if (patient.dialogue[skitNumber].needPlayerInputNow)
         {
-            print(Globals.mabel.dialogue[1].playerResponses[0]);
-            while (Globals.mabel.dialogue[1].hasNextBranchingLine(0))
+            print(patient.dialogue[skitNumber].playerResponses[0]);
+            while (patient.dialogue[skitNumber].hasNextBranchingLine(0))
             {
-                print(Globals.mabel.dialogue[1].getBranchingLine(0));
+                print(patient.dialogue[skitNumber].getBranchingLine(0));
             }
-            Globals.mabel.dialogue[1].reset();
-            print(Globals.mabel.dialogue[1].playerResponses[1]);
-            while (Globals.mabel.dialogue[1].hasNextBranchingLine(1))
+            patient.dialogue[skitNumber].reset();
+            print(patient.dialogue[skitNumber].playerResponses[1]);
+            while (patient.dialogue[skitNumber].hasNextBranchingLine(1))
             {
-                print(Globals.mabel.dialogue[1].getBranchingLine(1));
-            }
-            Globals.mabel.dialogue[1].reset();
-            print(Globals.mabel.dialogue[1].playerResponses[2]);
-            while (Globals.mabel.dialogue[1].hasNextBranchingLine(2))
-            {
-                print(Globals.mabel.dialogue[1].getBranchingLine(2));
+                print(patient.dialogue[skitNumber].getBranchingLine(1));
             }
 
+            patient.dialogue[skitNumber].reset();
+            print(patient.dialogue[skitNumber].playerResponses[2]);
+            while (patient.dialogue[skitNumber].hasNextBranchingLine(2))
+            {
+                print(patient.dialogue[skitNumber].getBranchingLine(2));
+            }
+            
+
         }
+        
         
         
     }
