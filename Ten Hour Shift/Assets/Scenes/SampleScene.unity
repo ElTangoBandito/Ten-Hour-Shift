@@ -422,6 +422,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 963194227}
   starting_camere_position: {x: 0, y: 0, z: 0}
+  clickables:
+  - {fileID: 989745300}
+  - {fileID: 146177006}
+  - {fileID: 902893914}
+  - {fileID: 1037169383}
+  - {fileID: 1582468215}
+  - {fileID: 1464968915}
 --- !u!65 &146177008
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1312,6 +1319,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 963194227}
   starting_camere_position: {x: 0, y: 0, z: 0}
+  clickables:
+  - {fileID: 989745300}
+  - {fileID: 146177006}
+  - {fileID: 902893914}
+  - {fileID: 1037169383}
+  - {fileID: 1582468215}
+  - {fileID: 1464968915}
 --- !u!65 &902893916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1471,6 +1485,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 963194227}
   starting_camere_position: {x: 0, y: 0, z: 0}
+  clickables:
+  - {fileID: 989745300}
+  - {fileID: 146177006}
+  - {fileID: 902893914}
+  - {fileID: 1037169383}
+  - {fileID: 1582468215}
+  - {fileID: 1464968915}
 --- !u!65 &989745302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1779,6 +1800,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 963194227}
   starting_camere_position: {x: 0, y: 0, z: 0}
+  clickables:
+  - {fileID: 989745300}
+  - {fileID: 146177006}
+  - {fileID: 902893914}
+  - {fileID: 1037169383}
+  - {fileID: 1582468215}
+  - {fileID: 1464968915}
 --- !u!65 &1037169385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2276,6 +2304,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 963194227}
   starting_camere_position: {x: 0, y: 0, z: 0}
+  clickables:
+  - {fileID: 989745300}
+  - {fileID: 146177006}
+  - {fileID: 902893914}
+  - {fileID: 1037169383}
+  - {fileID: 1582468215}
+  - {fileID: 1464968915}
 --- !u!65 &1464968917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2485,6 +2520,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 963194227}
   starting_camere_position: {x: 0, y: 0, z: 0}
+  clickables:
+  - {fileID: 989745300}
+  - {fileID: 146177006}
+  - {fileID: 902893914}
+  - {fileID: 1037169383}
+  - {fileID: 1582468215}
+  - {fileID: 1464968915}
 --- !u!65 &1582468217
 BoxCollider:
   m_ObjectHideFlags: 0

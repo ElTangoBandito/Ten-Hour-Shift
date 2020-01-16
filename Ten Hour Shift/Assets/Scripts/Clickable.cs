@@ -5,6 +5,7 @@ public class Clickable : MonoBehaviour
 {
     public Camera m_camera;
     public Vector3 starting_camere_position;
+    public GameObject[] clickables;
     //public Transform[] rooms;
     // Start is called before the first frame update
     Vector3 originalEulerAngle, upperRoomEulerAngle, buttomRoomEulerAngle, breakRoomEulerAngle;
@@ -25,6 +26,10 @@ public class Clickable : MonoBehaviour
             m_camera.transform.position = starting_camere_position;
             m_camera.transform.eulerAngles = originalEulerAngle;
             Globals.roomNumber = 1;
+            for (int i = 0; i < clickables.Length; i++)
+            {
+                clickables[i].SetActive(true);
+            }
         }
     }
 
@@ -37,6 +42,9 @@ public class Clickable : MonoBehaviour
             m_camera.transform.position = new Vector3(-37.0f, 7.0f, -29.0f); //green room cam position
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
             Globals.roomNumber = 2;
+            for(int i =1; i<clickables.Length; i++) {
+                clickables[i].SetActive(false);
+            }
         }
         else if (gameObject.name == "BlueClickable")
         {
@@ -44,6 +52,12 @@ public class Clickable : MonoBehaviour
             m_camera.transform.position = new Vector3(-11.0f, 7.0f, -29.0f); //blue room cam position
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
             Globals.roomNumber = 3;
+            for (int i = 0; i < clickables.Length; i++)
+            {
+                if (i == 3)
+                    continue;
+                clickables[i].SetActive(false);
+            }
         }
         else if (gameObject.name == "GrassClickable")
         {
@@ -51,6 +65,12 @@ public class Clickable : MonoBehaviour
             m_camera.transform.position = new Vector3(-11.0f, 7.0f, 33.0f); //grass room cam position
             m_camera.transform.eulerAngles = upperRoomEulerAngle;
             Globals.roomNumber = 4;
+            for (int i = 0; i < clickables.Length; i++)
+            {
+                if (i == 4)
+                    continue;
+                clickables[i].SetActive(false);
+            }
         }
         else if (gameObject.name == "PurpleClickable")
         {
@@ -58,6 +78,12 @@ public class Clickable : MonoBehaviour
             m_camera.transform.position = new Vector3(12.0f, 7.0f, 33.0f); //purple room cam position
             m_camera.transform.eulerAngles = upperRoomEulerAngle;
             Globals.roomNumber = 5;
+            for (int i = 0; i < clickables.Length; i++)
+            {
+                if (i == 5)
+                    continue;
+                clickables[i].SetActive(false);
+            }
         }
         else if (gameObject.name == "BreakroomClickable")
         {
@@ -65,6 +91,12 @@ public class Clickable : MonoBehaviour
             m_camera.transform.position = new Vector3(-60.0f, 7.0f, 11.0f); //break room cam position
             m_camera.transform.eulerAngles = breakRoomEulerAngle;
             Globals.roomNumber = 5;
+            for (int i = 0; i < clickables.Length; i++)
+            {
+                if (i == 2)
+                    continue;
+                clickables[i].SetActive(false);
+            }
         }
         else if (gameObject.name == "MeetingRoomClickable")
         {
@@ -72,6 +104,12 @@ public class Clickable : MonoBehaviour
             m_camera.transform.position = new Vector3(12.0f, 8.0f, -29.0f); //break room cam position
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
             Globals.roomNumber = 6;
+            for (int i = 0; i < clickables.Length; i++)
+            {
+                if (i == 1)
+                    continue;
+                clickables[i].SetActive(false);
+            }
         }
     }
 }
