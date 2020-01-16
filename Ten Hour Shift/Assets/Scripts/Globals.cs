@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Globals : MonoBehaviour
 {
+    public static int timeHour;
+    public static int timeMinute;
+    public static int stress;
+
     public static PatientClass.Patient mabel;
     public static PatientClass.Patient michael;
     public static PatientClass.Patient dolores;
@@ -18,7 +22,12 @@ public class Globals : MonoBehaviour
     public List<string> branchingDialogueThree = new List<string>();
     public Dictionary<int, List<string>> branchingDialogue = new Dictionary<int, List<string>>();
     int numberOfSkit = 1;
-
+    public static int roomNumber = 1;
+    // 1 Hallway
+    // 2 Michael
+    // 3 Mabel
+    // 4 Dolores
+    // 5 Breakroom
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +38,15 @@ public class Globals : MonoBehaviour
         dolores = new PatientClass.Patient("Dolores Valerio");
         Tracy = new PatientClass.Patient("Tracy");
         initializeRubyDialogue();
+
+        stress = 0;
+        timeHour = 7;
+        timeMinute = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
 
