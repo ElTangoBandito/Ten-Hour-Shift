@@ -21,7 +21,7 @@ public class LeaveButtonControLLer : MonoBehaviour
     // Start is called before the first frame update
     public void clickLeave()
     {
-        Debug.Log("Move Back");
+        //Debug.Log("Move Back");
         m_camera.transform.position = starting_camere_position;
         m_camera.transform.eulerAngles = originalEulerAngle;
         Globals.roomNumber = 1;

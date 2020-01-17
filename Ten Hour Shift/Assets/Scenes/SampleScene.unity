@@ -354,7 +354,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e51b5accef388b54ebd2a2cd3b7ab0b0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1025,9 +1025,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patientUIDialogue: {fileID: 762078108}
-  chatButton: {fileID: 0}
-  helpButton: {fileID: 0}
-  leaveButton: {fileID: 0}
+  chatButton: {fileID: 1126240855}
+  helpButton: {fileID: 70397144}
+  leaveButton: {fileID: 1912835801}
   nextButton: {fileID: 1071817541}
   button0: {fileID: 1187130963}
   button1: {fileID: 721008398}
@@ -1169,6 +1169,7 @@ MonoBehaviour:
   - {fileID: 1582468215}
   - {fileID: 1464968915}
   breakButton: {fileID: 390488126}
+  nextButton: {fileID: 1071817541}
 --- !u!65 &146177008
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1769,7 +1770,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &390488128
 MonoBehaviour:
@@ -1983,7 +1984,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2c77c2af08d847f4287e1b35793b8458, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.12
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2257,11 +2258,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: d15cb8370c54e7644a09ae657507183d, type: 3}
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2269,7 +2270,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Take Break
+  m_Text: Take a break
 --- !u!222 &598552968
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3122,7 +3123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33aa7b2bc98119149bcc68ac4e10012d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patientUIDialogue: {fileID: 0}
+  patientUIDialogue: {fileID: 762078108}
   stupidButton: {fileID: 10183160}
   stupidButtonBigBrother: {fileID: 372816210}
   stupidButtonLilBrother: {fileID: 1253704916}
@@ -3136,6 +3137,7 @@ MonoBehaviour:
   - {fileID: 1582468215}
   - {fileID: 1464968915}
   breakButton: {fileID: 390488126}
+  nextButton: {fileID: 1071817541}
 --- !u!65 &902893916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3307,6 +3309,7 @@ MonoBehaviour:
   - {fileID: 1582468215}
   - {fileID: 1464968915}
   breakButton: {fileID: 390488126}
+  nextButton: {fileID: 1071817541}
 --- !u!65 &989745302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3627,6 +3630,7 @@ MonoBehaviour:
   - {fileID: 1582468215}
   - {fileID: 1464968915}
   breakButton: {fileID: 390488126}
+  nextButton: {fileID: 1071817541}
 --- !u!65 &1037169385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3773,6 +3777,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 85636641}
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1071817543}
+        m_MethodName: nextRandomSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4245,7 +4260,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 86934e5a55110bf4fb1f5738e3e65599, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4736,6 +4751,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409756823}
   m_CullTransparentMesh: 0
+--- !u!1 &1459602331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459602332}
+  - component: {fileID: 1459602334}
+  - component: {fileID: 1459602333}
+  m_Layer: 0
+  m_Name: BreakroomWallNorth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1459602332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459602331}
+  m_LocalRotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: 7.2736614e-16}
+  m_LocalPosition: {x: 0.1263, y: 0.030000001, z: 0.1791}
+  m_LocalScale: {x: 0.24157675, y: 8.430697, z: 16}
+  m_Children: []
+  m_Father: {fileID: 2097717174}
+  m_RootOrder: 81
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1459602333
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459602331}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2842401775824207244, guid: d6344bd189dd25c429f64c4f4a7c9c36, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1459602334
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459602331}
+  m_Mesh: {fileID: 1857649854140893296, guid: d6344bd189dd25c429f64c4f4a7c9c36, type: 3}
 --- !u!1 &1464968915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4780,6 +4874,7 @@ MonoBehaviour:
   - {fileID: 1582468215}
   - {fileID: 1464968915}
   breakButton: {fileID: 390488126}
+  nextButton: {fileID: 1071817541}
 --- !u!65 &1464968917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4836,7 +4931,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f872931755d01d34f9e06bdad72047c1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.24
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5129,6 +5224,7 @@ MonoBehaviour:
   - {fileID: 1582468215}
   - {fileID: 1464968915}
   breakButton: {fileID: 390488126}
+  nextButton: {fileID: 1071817541}
 --- !u!65 &1582468217
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5807,6 +5903,85 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1874198519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874198520}
+  - component: {fileID: 1874198522}
+  - component: {fileID: 1874198521}
+  m_Layer: 0
+  m_Name: WallRoomMichaelWest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874198520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874198519}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.0636, y: 0.030000001, z: 0.2165}
+  m_LocalScale: {x: 0.24157675, y: 8.430697, z: 22.593468}
+  m_Children: []
+  m_Father: {fileID: 2097717174}
+  m_RootOrder: 80
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1874198521
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874198519}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2842401775824207244, guid: d6344bd189dd25c429f64c4f4a7c9c36, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1874198522
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874198519}
+  m_Mesh: {fileID: 3701933475331248693, guid: d6344bd189dd25c429f64c4f4a7c9c36, type: 3}
 --- !u!1 &1887450467
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,6 +6057,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887450467}
   m_CullTransparentMesh: 0
+--- !u!1 &1898844959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1898844960}
+  - component: {fileID: 1898844961}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1898844960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898844959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 685.0625, y: 802.375, z: -298.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1898844961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898844959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a6662f840bb544ba9f6d07fb0c88fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyMusic: {fileID: 323602849}
+  lobbyNoise: {fileID: 181933883}
+  mabelRadio: {fileID: 471058929}
+  michaelCough: {fileID: 1218029224}
+  michaelRadio: {fileID: 1978436381}
+  doloresCough: {fileID: 1510151469}
+  doloresRadio: {fileID: 31032830}
+  doloresHeartBeat: {fileID: 44992546}
 --- !u!1 &1912835801
 GameObject:
   m_ObjectHideFlags: 0
@@ -6156,9 +6382,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patientUIDialogue: {fileID: 762078108}
-  chatButton: {fileID: 0}
-  helpButton: {fileID: 0}
-  leaveButton: {fileID: 0}
+  chatButton: {fileID: 1126240855}
+  helpButton: {fileID: 70397144}
+  leaveButton: {fileID: 1912835801}
   nextButton: {fileID: 1071817541}
   button0: {fileID: 0}
   button1: {fileID: 0}
@@ -6209,7 +6435,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 50e08ce518f849a4294f9c222adf12a2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6528,3 +6754,9 @@ RectTransform:
   m_AnchoredPosition: {x: 450, y: 135}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &2097717174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d6344bd189dd25c429f64c4f4a7c9c36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1006515803}
+  m_PrefabAsset: {fileID: 0}

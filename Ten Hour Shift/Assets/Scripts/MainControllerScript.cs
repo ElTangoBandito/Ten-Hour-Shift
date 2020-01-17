@@ -57,6 +57,12 @@ public class MainControllerScript : MonoBehaviour
         
     }
 
+    public void nextRandomSound()
+    {
+        Globals.randomSoundGenerator = Random.Range(1, 10);
+        Globals.randomSoundPlayed = false;
+    }
+
     public void chatWithPatient(){
         turnOffButtons();
         Globals.progressTime();
@@ -236,13 +242,13 @@ public class MainControllerScript : MonoBehaviour
         clickNextLine();
         switch (Globals.roomNumber){
             case 2:
-                Globals.michael.health += Globals.michael.dialogue[Globals.currentSkitNumber].playerChoiceResult[2];
+                Globals.michael.happiness += Globals.michael.dialogue[Globals.currentSkitNumber].playerChoiceResult[2];
                 break;
             case 3:
-                Globals.mabel.health += Globals.mabel.dialogue[Globals.currentSkitNumber].playerChoiceResult[2];
+                Globals.mabel.happiness += Globals.mabel.dialogue[Globals.currentSkitNumber].playerChoiceResult[2];
                 break;
             case 4:
-                Globals.dolores.health += Globals.dolores.dialogue[Globals.currentSkitNumber].playerChoiceResult[2];
+                Globals.dolores.happiness += Globals.dolores.dialogue[Globals.currentSkitNumber].playerChoiceResult[2];
                 break;
         }
     }
@@ -262,12 +268,14 @@ public class MainControllerScript : MonoBehaviour
     public void turnOnThreeButtons(){
         button0.SetActive(true);
         button1.SetActive(true);
-        button2.SetActive(true);        
+        button2.SetActive(true);
+        nextButton.SetActive(false);
     }
 
     public void turnOnTwoButtons(){
         button0.SetActive(true);
         button1.SetActive(true);
+        nextButton.SetActive(false);
     }
     public void turnOffChatButtons(){
         button0.SetActive(false);
@@ -279,6 +287,7 @@ public class MainControllerScript : MonoBehaviour
             int skitNumber = 1; //Random.Range(1, Globals.michael.dialogue.Count);
             if (patientIn.isAllSkitPlayed()){
                 skitNumber = patientIn.dialogue.Count;
+                patientIn.dialogue[skitNumber].reset();
                 skitAvailable = true;
             }
             while (!skitAvailable){

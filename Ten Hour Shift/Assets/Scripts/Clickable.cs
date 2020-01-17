@@ -11,6 +11,7 @@ public class Clickable : MonoBehaviour
     public Vector3 starting_camere_position;
     public GameObject[] clickables;
     public GameObject breakButton;
+    public GameObject nextButton;
     //public Transform[] rooms;
     // Start is called before the first frame update
     Vector3 originalEulerAngle, upperRoomEulerAngle, buttomRoomEulerAngle, breakRoomEulerAngle;
@@ -27,7 +28,6 @@ public class Clickable : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)){
-            Debug.Log("Move Back");
             m_camera.transform.position = starting_camere_position;
             m_camera.transform.eulerAngles = originalEulerAngle;
             Globals.roomNumber = 1;
@@ -41,7 +41,6 @@ public class Clickable : MonoBehaviour
     }
     public void clickOnLeave()
     {
-        Debug.Log("Move Back");
         m_camera.transform.position = starting_camere_position;
         m_camera.transform.eulerAngles = originalEulerAngle;
         Globals.roomNumber = 1;
@@ -60,20 +59,19 @@ public class Clickable : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("Clicked");
         if (gameObject.name == "GreenClickable")
         {
-            Debug.Log("Move to green");
             m_camera.transform.position = new Vector3(-37.0f, 7.0f, -29.0f); //green room cam position
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
             Globals.roomNumber = 2;
             for(int i =1; i<clickables.Length; i++) {
                 clickables[i].SetActive(false);
             }
+            nextButton.SetActive(false);
         }
         else if (gameObject.name == "BlueClickable")
         {
-            Debug.Log("Move to blue");
+
             m_camera.transform.position = new Vector3(-11.0f, 7.0f, -29.0f); //blue room cam position
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
             Globals.roomNumber = 3;
@@ -83,10 +81,10 @@ public class Clickable : MonoBehaviour
                     continue;
                 clickables[i].SetActive(false);
             }
+            nextButton.SetActive(false);
         }
         else if (gameObject.name == "GrassClickable")
         {
-            Debug.Log("Move to grass");
             m_camera.transform.position = new Vector3(-11.0f, 7.0f, 33.0f); //grass room cam position
             m_camera.transform.eulerAngles = upperRoomEulerAngle;
             Globals.roomNumber = 4;
@@ -96,10 +94,10 @@ public class Clickable : MonoBehaviour
                     continue;
                 clickables[i].SetActive(false);
             }
+            nextButton.SetActive(false);
         }
         else if (gameObject.name == "PurpleClickable")
         {
-            Debug.Log("Move to purple");
             m_camera.transform.position = new Vector3(12.0f, 7.0f, 33.0f); //purple room cam position
             m_camera.transform.eulerAngles = upperRoomEulerAngle;
             Globals.roomNumber = 5;
@@ -112,7 +110,6 @@ public class Clickable : MonoBehaviour
         }
         else if (gameObject.name == "BreakroomClickable")
         {
-            Debug.Log("Move to break room");
             m_camera.transform.position = new Vector3(-60.0f, 7.0f, 11.0f); //break room cam position
             m_camera.transform.eulerAngles = breakRoomEulerAngle;
             Globals.roomNumber = 5;
@@ -126,7 +123,7 @@ public class Clickable : MonoBehaviour
         }
         else if (gameObject.name == "MeetingRoomClickable")
         {
-            Debug.Log("Move to meeting room");
+
             m_camera.transform.position = new Vector3(12.0f, 8.0f, -29.0f); //break room cam position
             m_camera.transform.eulerAngles = buttomRoomEulerAngle;
             Globals.roomNumber = 6;

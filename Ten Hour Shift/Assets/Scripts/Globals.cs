@@ -26,6 +26,8 @@ public class Globals : MonoBehaviour
     public static int roomNumber = 1;
     public static int currentSkitNumber = 0;
     public static int buttonSelected = 99;
+    public static int randomSoundGenerator = 0;
+    public static bool randomSoundPlayed = false;
     // 1 Hallway
     // 2 Michael
     // 3 Mabel
@@ -65,12 +67,12 @@ public class Globals : MonoBehaviour
     }
 
     public static void progressTime(){
-        michael.health -= 4;
-        dolores.health -= 7;
-        mabel.health -= 4;
-        michael.happiness -= 5;
-        mabel.happiness -= 5;
-        dolores.happiness -= 5;
+        michael.health -= Random.Range(2, 8); ;
+        dolores.health -= Random.Range(5, 11); ;
+        mabel.health -= Random.Range(2, 8); ;
+        michael.happiness -= Random.Range(2, 7);
+        mabel.happiness -= Random.Range(2, 7); ;
+        dolores.happiness -= Random.Range(2, 7); ;
         incrementTime();
     }
     public static void incrementTime()
@@ -114,13 +116,14 @@ public class Globals : MonoBehaviour
     }
 
     public static void aidPatient(){
-        int aidValue = 35;
-        int happiness = 5;
+        int aidValue = 37;
+        int happiness = 8;
         if (Globals.stress >= 35){
-            aidValue = 25;
+            aidValue = 27;
+            happiness = 4;
         }
         if (Globals.stress >= 70){
-            aidValue = 15;
+            aidValue = 17;
             happiness = -10;
         }
         Globals.stress += 15;
