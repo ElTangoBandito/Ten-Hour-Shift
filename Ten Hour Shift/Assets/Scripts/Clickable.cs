@@ -10,6 +10,7 @@ public class Clickable : MonoBehaviour
     public Camera m_camera;
     public Vector3 starting_camere_position;
     public GameObject[] clickables;
+    public GameObject breakButton;
     //public Transform[] rooms;
     // Start is called before the first frame update
     Vector3 originalEulerAngle, upperRoomEulerAngle, buttomRoomEulerAngle, breakRoomEulerAngle;
@@ -34,6 +35,7 @@ public class Clickable : MonoBehaviour
             {
                 clickables[i].SetActive(true);
             }
+            breakButton.SetActive(false);
             clearTexts();
         }
     }
@@ -107,6 +109,7 @@ public class Clickable : MonoBehaviour
                     continue;
                 clickables[i].SetActive(false);
             }
+            breakButton.SetActive(true);
         }
         else if (gameObject.name == "MeetingRoomClickable")
         {
