@@ -16,21 +16,18 @@ public class DialogueUIHandler : MonoBehaviour
     {
         if (Globals.roomNumber == 2 || Globals.roomNumber == 3 || Globals.roomNumber == 4)
         {
-            Debug.Log("1" + Globals.roomNumber);
             dialogueUIObject.SetActive(true);
             visitingRoomUIObject.SetActive(false);
         }
 
         else if (Globals.roomNumber == 6)
         {
-            Debug.Log("2" + Globals.roomNumber);
             dialogueUIObject.SetActive(false);
             visitingRoomUIObject.SetActive(true);
         }
 
         else
         {
-            Debug.Log("3" + Globals.roomNumber);
             dialogueUIObject.SetActive(false);
             visitingRoomUIObject.SetActive(false);
         }

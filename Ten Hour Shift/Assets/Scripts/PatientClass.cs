@@ -22,6 +22,16 @@ public class PatientClass : MonoBehaviour
         {
             print(patientName);
         }
+
+        public bool isAllSkitPlayed(){
+            bool allPlayed = true;
+            for (int i = 1; i < dialogue.Count - 1; i++){
+                if (!dialogue[i].isUsed()){
+                    allPlayed = false;
+                }
+            }
+            return allPlayed;
+        }
     }
 
 

@@ -18,6 +18,8 @@ public class SkitClass : MonoBehaviour
         public bool needPlayerInputNow; //this is true when the dialogue requires player input at this very moment.
         public bool playerInputRequired;
 
+        public bool actionRequiredFlipped;
+
         public Skit(List<string> patientDialoguesIn, List<string> playerResponsesIn, List<int> stressRequirementsIn, List<int> playerChoiceResultIn, Dictionary<int, List<string>> branchingDialogueIn)
         {
             patientDialogues = patientDialoguesIn;
@@ -37,6 +39,7 @@ public class SkitClass : MonoBehaviour
             needPlayerInputNow = false;
             currentDialogueIndex = 0;
             currentBranchingDialogueIndex = 0;
+            actionRequiredFlipped = false;
         }
 
         public string getNextLine()
@@ -56,11 +59,12 @@ public class SkitClass : MonoBehaviour
         {
             if (currentDialogueIndex >= patientDialogues.Count)
             {
-                if (playerInputRequired)
+                if (playerInputRequired && !actionRequiredFlipped)
                 {
                     needPlayerInputNow = true;
+                    actionRequiredFlipped = true;
                 }
-                else
+                else if (!playerInputRequired)
                 {
                     skitIsOver = true;
                 }
@@ -77,6 +81,7 @@ public class SkitClass : MonoBehaviour
                 currentLine = branchingDialogue[branchNumber][currentBranchingDialogueIndex];
                 currentBranchingDialogueIndex++;
             }
+            hasNextBranchingLine(branchNumber);
             return currentLine;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Globals : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Globals : MonoBehaviour
     public Dictionary<int, List<string>> branchingDialogue = new Dictionary<int, List<string>>();
     int numberOfSkit = 1;
     public static int roomNumber = 1;
+    public static int currentSkitNumber = 0;
+    public static int buttonSelected = 99;
     // 1 Hallway
     // 2 Michael
     // 3 Mabel
@@ -38,6 +41,7 @@ public class Globals : MonoBehaviour
         michael = new PatientClass.Patient("Michael Kodskey");
         dolores = new PatientClass.Patient("Dolores Valerio");
         Tracy = new PatientClass.Patient("Tracy");
+        dolores.health = 50;
         initializeMabelDialogue();
         initializeMichaelDialogue();
         initializeDoloresDialogue();
@@ -52,10 +56,27 @@ public class Globals : MonoBehaviour
     {
     }
 
-    void incrementTime()
+    public static void takeBreak(){
+        stress -= 50;
+        if (stress < 0){
+            stress = 0;
+        }
+        progressTime();
+    }
+
+    public static void progressTime(){
+        michael.health -= 10;
+        dolores.health -= 15;
+        mabel.health -= 10;
+        michael.happiness -= 5;
+        mabel.happiness -= 5;
+        dolores.happiness -= 5;
+        incrementTime();
+    }
+    public static void incrementTime()
     {
         timeMinute += 3;
-        if (timeMinute == 3)
+        if (timeMinute == 6)
         {
             timeMinute = 0;
             timeHour += 1;
@@ -92,6 +113,41 @@ public class Globals : MonoBehaviour
         branchingDialogue.Add(1, bd2Copy);
     }
 
+    public static void aidPatient(){
+        int aidValue = 35;
+        int happiness = 5;
+        if (Globals.stress >= 35){
+            aidValue = 25;
+        }
+        if (Globals.stress >= 70){
+            aidValue = 15;
+            happiness = -10;
+        }
+        Globals.stress += 15;
+        switch (Globals.roomNumber){
+            case 2:
+                Globals.michael.health += aidValue;
+                Globals.michael.happiness += happiness;
+                if(Globals.michael.health > 100){
+                    Globals.michael.health = 100;
+                }
+                break;
+            case 3:
+                Globals.mabel.health += aidValue;
+                Globals.mabel.happiness += happiness;
+                if(Globals.mabel.health > 100){
+                    Globals.mabel.health = 100;
+                }
+                break;
+            case 4:
+                Globals.dolores.health += aidValue;
+                Globals.dolores.happiness += happiness;
+                if(Globals.dolores.health > 100){
+                    Globals.dolores.health = 100;
+                }
+                break;
+        }
+    }
     void addSkitToPatient(PatientClass.Patient patientIn)
     {
         List<string> patientDialoguesCopy = new List<string>(patientDialogues);
@@ -148,7 +204,7 @@ public class Globals : MonoBehaviour
         patientDialogues.Add("Have you talked to Dolores today? She’s such a delight.");
         patientDialogues.Add("You know, I think she feels a little lonely. Sometimes I hear her crying at night.");
         patientDialogues.Add("I don’t know what I’d do if I have what she’s got.");
-        patientDialogues.Add("One time, one of the new nurses forgot to give her her medicine, and she nearly died!");
+        patientDialogues.Add("One time, one of the new nurse forgot to give her medicine and she nearly died!");
         addSkitToPatient(mabel);
 
         //skit 4
@@ -187,7 +243,7 @@ public class Globals : MonoBehaviour
         addSkitToPatient(mabel);
 
         //skit 6
-        patientDialogues.Add("DId you know Michael had a son? Imagine him, raising a child.");
+        patientDialogues.Add("Did you know Michael had a son? Imagine him, raising a child.");
         patientDialogues.Add("He came to visit years ago, he was a real gentleman.");
         patientDialogues.Add("Oh, and very handsome too.");
         patientDialogues.Add("(Mabel chortles.)");
@@ -389,6 +445,46 @@ public class Globals : MonoBehaviour
         addSkitToPatient(michael);
 
         //skit 6 when all skit is used.
+        patientDialogues.Add("(You walk in on Mr. Kodskey as he’s watching an old World War II documentary.)");
+        patientDialogues.Add("Ah… Good ‘ol Ike. Now THERE was a president I’d like to have back.");
+        patientDialogues.Add("He lead our boys to victory in World War II, and threatened to nuke those Commies to kingdom come if they didn’t surrender in Korea!");
+        patientDialogues.Add("They oughta make it mandatory to enlist if you wanna run this country. Military men are men of action!");
+        patientDialogues.Add("Not too many men like him anymore… you kids today are too fucking soft nowadays.");
+        patientDialogues.Add("You spend too much time talking about what’s wrong with the world. But who’s gonna do what’s gotta be done to make it right?");
+        patientDialogues.Add("Not the lazy brats asking for handouts. Not the kids getting trophies for just showing up. And certainly not YOU, dipshit.");
+        patientDialogues.Add("(Mr. Kodskey shows a modicum of wisdom every now and then, but his presentation… needs a little work.)");
+        addSkitToPatient(michael);
+
+        //skit 7
+        patientDialogues.Add("(You enter Mr Kodskey’s room, and big surprise… he seems especially peeved about something.)");
+        patientDialogues.Add("Seems like everyone nowadays just expects to get their way. Back in my day, if you wanted something, you had to fight for it...");
+        patientDialogues.Add("What about you, pansy ass? Is there anything in life you’d fight for?");
+
+        playerResponses.Add("My friends and family.");
+        stressRequirements.Add(-35);
+        responseResults.Add(5);
+        branchingDialogueOne.Add("Hmm… hard to argue with that. Especially when you’re talking about your countrymen.");
+        branchingDialogueOne.Add("Though, there are definitely a few family members I wouldn’t have minded putting a bullet in!");
+        branchingDialogueOne.Add("(Michael cackles at his own disturbing joke. In his fit of laughter, you take the opportunity to slip out quietly.)");
+
+        playerResponses.Add("Freedom of expression.");
+        stressRequirements.Add(70);
+        responseResults.Add(15);
+        branchingDialogueTwo.Add("(It feels almost unnatural to see Michael smile so widely. It’s about as pleasant as orange-flavored toothpaste.)");
+        branchingDialogueTwo.Add("Fighting for the right to say anything you want? Well, if that ain’t the most Goddamn American thing I’ve heard all day!");
+        branchingDialogueTwo.Add("You know, kid, maybe there’s hope for you and your generation yet!");
+
+        playerResponses.Add("Equal representation and care for everyone.");
+        stressRequirements.Add(-70);
+        responseResults.Add(-20);
+        branchingDialogueThree.Add("Heh… Of course, I should’ve expected that hippy bullshit from someone like you.");
+        branchingDialogueThree.Add("Not everyone on God’s green earth is equal, you know. There’s a reason we’re all different colors, coming from different places.");
+        branchingDialogueThree.Add("People like you believe that the world should be all about kumbaya and all that crap.");
+        branchingDialogueThree.Add("You’re the ones who end up getting taken advantage of. Then who’re the ones who have to bail you out?");
+        branchingDialogueThree.Add("(You decide to leave Michael alone, but his words don’t discourage you. He obviously has his own opinions, and you have yours.)");
+        combine3Branches();
+        addSkitToPatient(michael);
+        //skit 8
 
         patientDialogues.Add("(You had a brief chat with Michael.)");
         addSkitToPatient(michael);
@@ -480,6 +576,51 @@ public class Globals : MonoBehaviour
         branchingDialogueThree.Add("And if I were you, I’d take them soon. These lessons won’t be around much longer, if you catch my drift.");
         branchingDialogueThree.Add("(As Ms. Valerio laughs at her own dark joke, you laugh nervously and edge yourself closer to the door.)");
         combine3Branches();
+        addSkitToPatient(dolores);
+
+        //skit 5
+        patientDialogues.Add("(You come into Ms. Valerio’s room to check her vitals. She’s slowly, but happily munching down a bag of brown candy.)");
+        patientDialogues.Add("¡Ay, mijo! Such an amazing boy! My son brought me my favorite candies today. I’m so fortunate!");
+        patientDialogues.Add("Here, try one! You’ll like it!");
+        patientDialogues.Add("(You find it hard to reject the kind woman’s offer. Your face scrunches as the sweet and sour flavor spreads across your tongue.)");
+        patientDialogues.Add("(Ms. Valerio laughs and offers you another piece. You politely decline.)");
+        patientDialogues.Add("It’s okay, sweetie. It’s not for everyone, but I appreciate you trying it!");
+        patientDialogues.Add("(Trying new things every day isn’t always a bad thing. But you won’t be trying tamarind again anytime soon.)");
+        addSkitToPatient(dolores);
+
+        //skit 6
+        patientDialogues.Add("(As you come to check up on Ms. Valerio, you notice that she looks forlorn and lost in thought.)");
+        patientDialogues.Add("(You must have had a worried look on your face, because she shakes her head suddenly and smiles wistfully.)");
+        patientDialogues.Add("Oh, I’ll be okay. It’s just… it’s hard not to feel sad sometimes. Or scared.");
+        patientDialogues.Add("Who knows when it’s coming? Today, tomorrow? And what comes next? I used to be so sure, but now...  no lo sé.");
+
+        playerResponses.Add("I’m here for you, no matter what happens. Do you want to talk about it?");
+        stressRequirements.Add(35);
+        responseResults.Add(0);
+        branchingDialogueOne.Add("No, sweetie… you’ve already got enough on your plate, you don’t need to carry my burdens too.");
+        branchingDialogueOne.Add("But gracias, I appreciate your support. You’re one of my favorite nurses here for a reason.");
+        branchingDialogueOne.Add("(You wish there was more you could do to help, but it looks like she needs some time to be alone.)");
+
+        playerResponses.Add("I know how you feel. But it could be worse, right?");
+        stressRequirements.Add(-35);
+        responseResults.Add(-20);
+        branchingDialogueTwo.Add("Well, I... I guess you have a point, but I don’t see how it could be much worse.");
+        branchingDialogueTwo.Add("You mean, like I could have a more aggressive cancer? Hooray… I get to die slower now, I suppose.");
+        branchingDialogueTwo.Add("Look, I know that you’re trying to help in your own way. But I just need to be alone right now.");
+        branchingDialogueTwo.Add("(You decide to respect her wishes, and make your way towards the door.)");
+
+        playerResponses.Add("Hey, at least you finally lost those extra few pounds!");
+        stressRequirements.Add(35);
+        responseResults.Add(-35);
+        branchingDialogueThree.Add("(There is a gut-wrenching mixture of shock and disgust on Ms. Valerio’s face that you surely weren’t expecting.)");
+        branchingDialogueThree.Add("I... um, wow. There’s a lot to unpack with that comment. I think I need to be left alone.");
+        branchingDialogueThree.Add("... What’re you standing there for?! ¡Vete!");
+        branchingDialogueThree.Add("(You’ve never seen her so angry since she moved in.Maybe it would be best to cut your losses and leave...)");
+        combine3Branches();
+        addSkitToPatient(dolores);
+
+        //skit 7 when all skit is used
+        patientDialogues.Add("(You had a brief chat with Dolores.)");
         addSkitToPatient(dolores);
 
         resetNumberOfSkit();

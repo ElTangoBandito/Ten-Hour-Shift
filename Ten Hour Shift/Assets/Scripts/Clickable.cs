@@ -1,8 +1,12 @@
 ﻿
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Clickable : MonoBehaviour
 {
+    public Text patientUIDialogue;
+    public Text stupidButton;
+    public Text stupidButtonBigBrother;
+    public Text stupidButtonLilBrother;
     public Camera m_camera;
     public Vector3 starting_camere_position;
     public GameObject[] clickables;
@@ -30,9 +34,15 @@ public class Clickable : MonoBehaviour
             {
                 clickables[i].SetActive(true);
             }
+            clearTexts();
         }
     }
-
+    void clearTexts(){
+        stupidButton.text = "";
+        stupidButtonBigBrother.text = "";
+        stupidButtonLilBrother.text = "";
+        patientUIDialogue.text = "";
+    }
     private void OnMouseDown()
     {
         Debug.Log("Clicked");
