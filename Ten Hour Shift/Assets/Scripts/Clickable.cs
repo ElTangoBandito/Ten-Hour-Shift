@@ -39,7 +39,19 @@ public class Clickable : MonoBehaviour
             clearTexts();
         }
     }
-
+    public void clickOnLeave()
+    {
+        Debug.Log("Move Back");
+        m_camera.transform.position = starting_camere_position;
+        m_camera.transform.eulerAngles = originalEulerAngle;
+        Globals.roomNumber = 1;
+        for (int i = 0; i < clickables.Length; i++)
+        {
+            clickables[i].SetActive(true);
+        }
+        breakButton.SetActive(false);
+        clearTexts();
+    }
     void clearTexts(){
         stupidButton.text = "";
         stupidButtonBigBrother.text = "";

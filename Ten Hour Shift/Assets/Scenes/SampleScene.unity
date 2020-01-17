@@ -2355,6 +2355,7 @@ GameObject:
   - component: {fileID: 795107907}
   - component: {fileID: 795107909}
   - component: {fileID: 795107908}
+  - component: {fileID: 795107910}
   m_Layer: 5
   m_Name: PatientImage
   m_TagString: Untagged
@@ -2399,8 +2400,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2417,6 +2418,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795107906}
   m_CullTransparentMesh: 0
+--- !u!114 &795107910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795107906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969341b60e0ba4e4b892ba4a29959ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patientImages:
+  - {fileID: 21300000, guid: 180f6df0b2a884649b01776bc1d60a6e, type: 3}
+  - {fileID: 21300000, guid: 396003f400a5cfb46bb8cc2f9f8b1282, type: 3}
+  - {fileID: 21300000, guid: aa0925cab7843f74082ce34a675bc680, type: 3}
 --- !u!1 &902893914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,8 +4354,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c9e6b9786cd324f4a81b2cb8ef7eb874, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4741,7 +4758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1887450468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4814,6 +4831,7 @@ GameObject:
   - component: {fileID: 1912835805}
   - component: {fileID: 1912835804}
   - component: {fileID: 1912835803}
+  - component: {fileID: 1912835806}
   m_Layer: 5
   m_Name: LeaveButton
   m_TagString: Untagged
@@ -4883,7 +4901,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1912835804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1912835806}
+        m_MethodName: clickLeave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1912835804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4920,6 +4949,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912835801}
   m_CullTransparentMesh: 0
+--- !u!114 &1912835806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912835801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2244dc01d7f0094bb4626a3a24add21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patientUIDialogue: {fileID: 762078108}
+  stupidButton: {fileID: 10183160}
+  stupidButtonBigBrother: {fileID: 372816210}
+  stupidButtonLilBrother: {fileID: 1253704916}
+  m_camera: {fileID: 963194227}
+  starting_camere_position: {x: 0, y: 0, z: 0}
+  clickables:
+  - {fileID: 989745300}
+  - {fileID: 146177006}
+  - {fileID: 902893914}
+  - {fileID: 1037169383}
+  - {fileID: 1582468215}
+  - {fileID: 1464968915}
+  breakButton: {fileID: 390488126}
 --- !u!1 &1954223536
 GameObject:
   m_ObjectHideFlags: 0
