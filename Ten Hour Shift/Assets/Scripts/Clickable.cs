@@ -39,6 +39,7 @@ public class Clickable : MonoBehaviour
             clearTexts();
         }
     }
+
     void clearTexts(){
         stupidButton.text = "";
         stupidButtonBigBrother.text = "";

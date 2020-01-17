@@ -9,6 +9,7 @@ public class MainControllerScript : MonoBehaviour
     public GameObject chatButton;
     public GameObject helpButton;
     public GameObject leaveButton;
+    public GameObject nextButton;
 
     public GameObject button0;
     public GameObject button1;
@@ -194,6 +195,7 @@ public class MainControllerScript : MonoBehaviour
     }
 
     public void buttonZeroClick(){
+        nextButton.SetActive(true);
         Globals.buttonSelected = 0;
         turnOffChatButtons();
         clickNextLine();
@@ -211,6 +213,7 @@ public class MainControllerScript : MonoBehaviour
     }
     
     public void buttonOneClick(){
+        nextButton.SetActive(true);
         Globals.buttonSelected = 1;
         turnOffChatButtons();
         clickNextLine();
@@ -227,6 +230,7 @@ public class MainControllerScript : MonoBehaviour
         }
     }
     public void buttonTwoClick(){
+        nextButton.SetActive(true);
         Globals.buttonSelected = 2;
         turnOffChatButtons();
         clickNextLine();
@@ -247,11 +251,13 @@ public class MainControllerScript : MonoBehaviour
         chatButton.SetActive(false);
         helpButton.SetActive(false);
         leaveButton.SetActive(false);
+        nextButton.SetActive(true);
     }
     public void turnOnButtons(){
         chatButton.SetActive(true);
         helpButton.SetActive(true);
         leaveButton.SetActive(true);
+        nextButton.SetActive(false);
     }
     public void turnOnThreeButtons(){
         button0.SetActive(true);

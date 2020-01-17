@@ -65,9 +65,9 @@ public class Globals : MonoBehaviour
     }
 
     public static void progressTime(){
-        michael.health -= 7;
-        dolores.health -= 12;
-        mabel.health -= 7;
+        michael.health -= 4;
+        dolores.health -= 7;
+        mabel.health -= 4;
         michael.happiness -= 5;
         mabel.happiness -= 5;
         dolores.happiness -= 5;
