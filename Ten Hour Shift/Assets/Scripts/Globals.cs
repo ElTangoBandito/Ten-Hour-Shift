@@ -224,7 +224,6 @@ public class Globals : MonoBehaviour
         responseResults.Add(15);
         branchingDialogueTwo.Add("Really? You know I was a ballad dancer when I was young.");
         branchingDialogueTwo.Add("I used to perform all the time for my school. Oh, you should’ve seen me then!");
-        branchingDialogueTwo.Add("Really? You know I was a ballad dancer when I was young.");
         branchingDialogueTwo.Add("The music, the audience, and the spotlight…");
         branchingDialogueTwo.Add("(Mabel’s eyes light up as she reminisces her younger days. For a moment, you caught a glimpse of a younger woman sitting in that chair.)");
         branchingDialogueTwo.Add("Well, that was all long ago when I could still feel my legs.");
